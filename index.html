@@ -4,21 +4,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>trump.pw</title>
-  <style>
-    body {
-      text-align: center;
-      /*background-color: #42adf4;*/
-      background-image: url("bg.jpg");
-      background-position:center;
+  <title>Computer Seized By The FBM</title>
+  <script>
+  var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+var myWindow2;
+  function openWin() {
+    myWindow = window.open('', '', 'width=300, height=300', 'myWindow');
+    // myWindow = window.open("fbm.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=300,height=300");
+    myWindow.document.write('<img src="SeizedByFBM.png" alt="">');
+}
+
+
+document.addEventListener("keydown", function(e) {
+  console.log("x")
+  if (e.ctrlKey || e.metaKey || e.altKey) {
+    alert("Don't try to close it.")
+  }
+  if (e.keyCode == 13) {
+    myWindow.close()
+    alert("SENDING AGENTS!!!")
+  }
+})
+
+function moveWinSlow(x, y) {
+     myWindow.moveTo(Math.floor(Math.random() * (w - 0 + 1)) + 0, Math.floor(Math.random() * (h - 0 + 1)) + 0);
+     myWindow.focus();
+}
+function moveWinSlow2(x, y) {
+     myWindow2.moveTo(Math.floor(Math.random() * (w - 0 + 1)) + 0, Math.floor(Math.random() * (h - 0 + 1)) + 0);
+     myWindow2.focus();
+}
+var i = 0;
+function loop1(speed) {
+  setTimeout(function () {
+    moveWinSlow(1, -1)
+
+      loop1()
+
+  }, speed)
+}
+
+var ii = 0;
+function loop2() {
+  setTimeout(function () {
+    moveWinSlow2(1, -1)
+
+    if (ii < 100) {
+      loop2()
+      ii += 1
     }
-    img {
-      height:50vh;
+
+  }, 250)
+}
+
+function start() {
+  openWin()
+  loop1(200)
+
+}
+
+function addEvent(obj, evt, fn) {
+    if (obj.addEventListener) {
+        obj.addEventListener(evt, fn, false);
     }
-  </style>
+    else if (obj.attachEvent) {
+        obj.attachEvent("on" + evt, fn);
+    }
+}
+addEvent(window,"load",function(e) {
+    addEvent(document, "mouseout", function(e) {
+        e = e ? e : window.event;
+        var from = e.relatedTarget || e.toElement;
+        if (!from || from.nodeName == "HTML") {
+            // myWindow.close()
+            openWin()
+            loop1(25)
+            alert("Don't try to close it.")
+        }
+    });
+});
+  </script>
 </head>
 <body>
-  <img src="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/05/12/104466932-PE_Color.240x240.jpg?v=1494613853" alt="">
-  <iframe width="1" height="1" src="https://www.youtube.com/embed/oAqrB_t1x1g?autoplay=1&loop=1&playlist=oAqrB_t1x1g" frameborder="0" allowfullscreen></iframe>
+  <h1>Your computer has been seized by the FBM</h1>
+  <img src="SeizedByFBM.png" alt=""><br>
+  <button onclick="start()" style="width: 400px; height: 400px; font-size: 60px;">Click To Fix</button>
+  <iframe width="0" height="0" src="https://www.youtube.com/embed/r_2Jduxc2P8?listType=playlist&list=r_2Jduxc2P8&version=3&loop=1&autoplay=1&rel=0&showinfo=0&controls=0&autohide=1" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 </body>
 </html>
